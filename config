@@ -26,7 +26,7 @@ font pango:Fira Sans 10
 # font, it doesn’t scale on retina/hidpi displays.
 
 # Bind to launch audio
-bindsym $mod+a exec pavucontrol 
+bindsym $mod+a exec pavucontrol
 # launch Feb bg
 exec sh ~/.fehbg
 # Use Mouse+$mod to drag floating windows to their wanted position
@@ -136,44 +136,43 @@ mode "resize" {
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
+
         status_command i3status --config ~/.config/i3/i3status.conf
         font pango:Fira Sans 8
-        separator_symbol "::"
+        separator_symbol " ~ "
           colors {
-            statusline	#999999
-            background	$black
-            # Colors            border      backgr.     text
-            focused_workspace	  $white	 	  $white		   $black
-            active_workspace	  #073642 	  #073642 	   #696f89
-            inactive_workspace	#073642 	  #073642      $white
-            urgent_workspace  	$orange		  $orange		   $dark
 
-    }
+            background #232323
+            statusline #DCDCDC
+
+            # focused_workspace  #007030 #007030 #ffffff
+            # active_workspace   #555555 #555555 #ffffff
+            # inactive_workspace #000000 #000000 #888888
+            # urgent_workspace   #2f343a #900000 #ffffff
+
+            focused_workspace    #ef6c00 #ef6c00 #ffffff #2b2b2b
+            active_workspace     #2b2b2b #2b2b2b #ffffff #2b2b2b
+            inactive_workspace   #2b2b2b #2b2b2b #ffffff #2b2b2b
+            urgent_workspace     #900000 #900000 #ffffff #2b2b2b
+  }
 
 }
-new_window pixel 3
-gaps inner 7
-gaps outer 0
+new_window pixel 1
+gaps inner 5
+gaps outer 5
+
 bindsym button3 floating toggle
 
-# Hybrid colors
-set $black	#002B36
-set $white	#839496
-set $gray	#CCCCCC
-set $darkgray	#666666
-set $green 	#799F26
-set $blue	#4D73AA
-set $purple	#8473A7
-set $red	#B58900
-set $orange	#E59847
-set $cyan	#2AA198
-set $dark	#00252E
 
-#class                  border  backgr. text    indicator
-client.focused			$white  $white  $dark    $dark
-client.unfocused		$dark   $dark   $white   $white
-client.focused_inactive	$dark   $dark   $white   $dark
-client.urgent			$orange $orange $dark    $white
+client.focused          #ef6c00 #ef6c00 #ffffff #2b2b2b
+client.focused_inactive #2b2b2b #2b2b2b #ffffff #2b2b2b
+client.unfocused        #2b2b2b #2b2b2b #ffffff #2b2b2b
+client.urgent           #900000 #900000 #ffffff #2b2b2b
+
+# client.focused          #007030 #007030 #ffffff #2b2b2b
+# client.focused_inactive #888888 #2b2b2b #ffffff #2b2b2b
+# client.unfocused        #888888 #2b2b2b #ffffff #2b2b2b
+# client.urgent           #900000 #900000 #ffffff #2b2b2b
 
 bindcode $mod+Shift+65 floating toggle
 
