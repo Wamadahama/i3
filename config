@@ -32,6 +32,18 @@ exec sh ~/.fehbg
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
+
+set $ws1 I
+set $ws2 II
+set $ws3 III
+set $ws4 IV
+set $ws5 V
+set $ws6 VI
+set $ws7 VII
+set $ws8 VIII
+set $ws9 IX
+set $ws10 X
+
 # start a terminal
 # bindsym $mod+Return exec i3-sensible-terminal
 bindsym $mod+Return exec urxvt
@@ -83,16 +95,16 @@ bindsym $mod+f fullscreen
 # change container layout (stacked, tabbed, toggle split)
 bindsym $mod+s layout stacking
 bindsym $mod+w layout tabbed
-bindsym $mod+1 workspace 1
-bindsym $mod+2 workspace 2
-bindsym $mod+3 workspace 3
-bindsym $mod+4 workspace 4
-bindsym $mod+5 workspace 5
-bindsym $mod+6 workspace 6
-bindsym $mod+7 workspace 7
-bindsym $mod+8 workspace 8
-bindsym $mod+9 workspace 9
-bindsym $mod+0 workspace 10
+bindsym $mod+1 workspace $ws1
+bindsym $mod+2 workspace $ws2
+bindsym $mod+3 workspace $ws3
+bindsym $mod+4 workspace $ws4
+bindsym $mod+5 workspace $ws5
+bindsym $mod+6 workspace $ws6
+bindsym $mod+7 workspace $ws7
+bindsym $mod+8 workspace $ws8
+bindsym $mod+9 workspace $ws9
+bindsym $mod+0 workspace $ws10
 
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace 1
@@ -135,42 +147,61 @@ mode "resize" {
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
+# bar {
+#
+#         status_command i3status --config ~/.config/i3/i3status.conf
+#         font pango:Fira Sans 8
+#         separator_symbol " ~ "
+#           colors {
+#
+#             background #232323
+#             statusline #DCDCDC
+#
+#             # focused_workspace  #007030 #007030 #ffffff
+#             # active_workspace   #555555 #555555 #ffffff
+#             # inactive_workspace #000000 #000000 #888888
+#             # urgent_workspace   #2f343a #900000 #ffffff
+#
+#             # focused_workspace    #ef6c00 #ef6c00 #ffffff #2b2b2b
+#             # active_workspace     #2b2b2b #2b2b2b #ffffff #2b2b2b
+#             # inactive_workspace   #2b2b2b #2b2b2b #ffffff #2b2b2b
+#             # urgent_workspace     #900000 #900000 #ffffff #2b2b2b
+#   }
+#
+# }
+
 bar {
+  status_command i3status --config ~/.config/i3/i3status.conf
+	position bottom
+	font pango: lime, FontAwesome 8
+	colors {
+		background #121417
+		statusline #deded6
+		separator  #4c5356
 
-        status_command i3status --config ~/.config/i3/i3status.conf
-        font pango:Fira Sans 8
-        separator_symbol " ~ "
-          colors {
-
-            background #232323
-            statusline #DCDCDC
-
-            # focused_workspace  #007030 #007030 #ffffff
-            # active_workspace   #555555 #555555 #ffffff
-            # inactive_workspace #000000 #000000 #888888
-            # urgent_workspace   #2f343a #900000 #ffffff
-
-            focused_workspace    #ef6c00 #ef6c00 #ffffff #2b2b2b
-            active_workspace     #2b2b2b #2b2b2b #ffffff #2b2b2b
-            inactive_workspace   #2b2b2b #2b2b2b #ffffff #2b2b2b
-            urgent_workspace     #900000 #900000 #ffffff #2b2b2b
-  }
-
+		focused_workspace #30433f #60867f #deded6
+		active_workspace #151515 #151515 #d7d0c7
+		inactive_workspace #4c5356 #2b3135 #deded6
+		urgent_workspace #cd546c #ef545f #eddcd3
+	}
 }
+
 new_window pixel 1
-gaps inner 5
-gaps outer 5
+# gaps inner 5
+# gaps outer 5
+gaps inner 6
+gaps outer 10
 
 bindsym button3 floating toggle
 
 
-client.focused          #ef6c00 #ef6c00 #ffffff #2b2b2b
-client.focused_inactive #2b2b2b #2b2b2b #ffffff #2b2b2b
-client.unfocused        #2b2b2b #2b2b2b #ffffff #2b2b2b
-client.urgent           #900000 #900000 #ffffff #2b2b2b
-
+# client.focused          #ef6c00 #ef6c00 #ffffff #2b2b2b
+# client.focused_inactive #2b2b2b #2b2b2b #ffffff #2b2b2b
+# client.unfocused        #2b2b2b #2b2b2b #ffffff #2b2b2b
+# client.urgent           #900000 #900000 #ffffff #2b2b2b
+#
 # client.focused          #007030 #007030 #ffffff #2b2b2b
-# client.focused_inactive #888888 #2b2b2b #ffffff #2b2b2b
+# client.focused_inactive #888888 #2b2b2bkj #ffffff #2b2b2b
 # client.unfocused        #888888 #2b2b2b #ffffff #2b2b2b
 # client.urgent           #900000 #900000 #ffffff #2b2b2b
 
@@ -182,3 +213,32 @@ bindsym $mod+Shift+minus move scratchpad
 # Show the first scratchpad window
 bindsym $mod+minus scratchpad show
 bindsym $mod+f1 exec feh ~/Documents/Images/Anime
+
+# Hybrid colors (solarized)
+# set $black	#002B36
+# set $white	#839496
+# set $gray	#CCCCCC
+# set $darkgray	#666666
+# set $green 	#799F26
+# set $blue	#4D73AA
+# set $purple	#8473A7
+# set $red	#B58900
+# set $orange	#E59847
+# set $cyan	#2AA198
+# set $dark	#00252E
+#
+# #class                  border  backgr. text    indicator
+# client.focused			$white  $white  $dark    $dark
+# client.unfocused		$dark   $dark   $white   $white
+# client.focused_inactive	$dark   $dark   $white   $dark
+# client.urgent			$orange $orange $dark    $white
+
+set $FOCUS #deded6
+set $UNFOCUS #2b3135
+
+# Layout colors 	    bord     bg       text     indicator (split)
+client.focused 		    $FOCUS   $FOCUS   $FOCUS   $FOCUS
+client.focused_inactive     $UNFOCUS $UNFOCUS $UNFOCUS $UNFOCUS
+client.unfocused 	    $UNFOCUS $UNFOCUS $UNFOCUS $UNFOCUS
+client.urgent 		    $FOCUS   $FOCUS   $FOCUS   $FOCUS
+client.background 	    $UNFOCUS
